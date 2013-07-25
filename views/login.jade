@@ -1,0 +1,11 @@
+h1 Log in
+
+form(method="POST", action="/session")
+	p
+		label(for="email") email:<br />
+		input#email(name="email")
+	p
+		label(for="password") Password:<br />
+		input#password(type="password", name="password")
+	p
+		input(type="submit", value="Log in");
