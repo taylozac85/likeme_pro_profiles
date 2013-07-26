@@ -15,52 +15,52 @@ html
 				div.navbar-container
 					ul.nav.pull-right
 						li
-							a#navbar-img-link(href="demo")
-								p.pull-right#pro-profile-nav-demo View Demo
+							a#navbar-img-link(href="pro-profile")
+								p.pull-right#pro-profile-nav-demo My Profile
 						li
-							a#navbar-img-link(href="#")
-								p.pull-right#pro-profile-nav Edit Profile
+							a#navbar-img-link(href="users/new")
+								p.pull-right#pro-profile-nav Sign up
 		div.pro-body-container-gray
 			div.row-fluid
 				div.span9
 					div.row-fluid
 						div.span3
-							img#pro-person-pic(src=user.profile_pic)
+							img#pro-person-pic(src="images/zach2.png")
 						div.span9#pro-info-container
-							h4#pro-person-name= user.username
-							p#pro-company-name= user.company
-							p#pro-location= user.location
+							h4#pro-person-name Zachary Taylor
+							p#pro-company-name Taylor & Co. Interiors
+							p#pro-location Marin County, CA
 							div#pro-description
-								p= user.description
-								//
-									div#pro-description-more
-										p Services Provided:
-										p We offer a variety of interior design services ranging from project management to furniture sales.
-										a#pro-less(href="#") less
-									a#pro-more(href="#") ...more
+								p Taylor & Co. Interiors designs and furnishes hundreds of commercial properties across the United States every year. Each project may take a business owner or builder from blueprints to finishing touches. We offer functionality, style and value, and we believe that good business and great design go hand in hand. At Taylor & Co. Interiors, we start with an agreed upon budget, making everything that follows a breeze.
+								div#pro-description-more
+									p Our award-winning designers love to work in a variety of styles and a range of aesthetics, never getting too comfortable with a particular 'look.'
+									p Services Provided:
+									p We offer a variety of interior design services ranging from project management to furniture sales.
+									a#pro-less(href="#") less
+								a#pro-more(href="#") ...more
 				div.span3#pro-contact-container
-					a#pro-contact-me.btn.btn-primary(href="mailto:someone@example.com?Subject=Hello%20again", target="none") Contact Me
+					a#pro-contact-me.btn.btn-primary(href="mailto:someone@example.com?Subject=Hello", target="none") Contact Me
 					p.pro-contact-info
-						a(href="#") #{user.website}
-					p.pro-contact-info <strong>Phone:</strong>  #{user.phone}
-					p.pro-contact-info <strong>Email:</strong>  #{user.email}
-					p.pro-contact-info <strong>Address:</strong> #{user.address}
+						a(href="#") www.taylorcodesign.com
+					p.pro-contact-info <strong>Phone:</strong>  711.307.7433
+					p.pro-contact-info <strong>Email:</strong>  zach@taylorcodesign.com
+					p.pro-contact-info <strong>Address:</strong> 2775 Willmary Dr., Marin County, CA 94956
 			div#pro-album-container
 				div#pro-album-1.pro-album-cover
 					a(href="#pro-photo-modal", role="button", data-toggle="modal")
-						img#pro-album.pro-album-pic(src="#")
+						img#pro-album.pro-album-pic(src="images/coffee1-2.jpg")
 						div.pro-album-label-container
 							div.pro-album-label
 								p.search-pic-name Strand 21 Coffee
 				div.pro-album-cover
 					a(href="#")
-						img.pro-album-pic(src="#")
+						img.pro-album-pic(src="images/wine1-1.jpg")
 						div.pro-album-label-container
 							div.pro-album-label
 								p.search-pic-name Wine Collection
 				div.pro-album-cover
 					a(href="#")
-						img.pro-album-pic(src="#")
+						img.pro-album-pic(src="images/yoga10-2.jpg")
 						div.pro-album-label-container
 							div.pro-album-label
 								p.search-pic-name Yoga Savana
