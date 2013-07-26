@@ -43,7 +43,7 @@ module.exports = function(app) {
         return;
       }    
     });
-    res.redirect('/');
+    res.redirect(307, '/session');
   });
 
 };
