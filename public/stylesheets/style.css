@@ -1483,12 +1483,75 @@ img#largestModalPhoto {
 	overflow-y: scroll;	
 }
 
-.fillwidth { 
-	width: 100%;
-	height: auto;
+.btn.btn-primary.signin-action-btn {
+	display: inline-block;
+	font-size: 16px;
+	padding: 8px 24px;
+	margin-right: 0px;
 }
 
-.fillheight {
-	height: 100%;
-	width: auto;
+label {
+	cursor: default !important;
+}
+
+#login {
+	font-weight: bold;
+	display: inline-block;
+	margin: 5px 0px;
+	cursor: pointer;
+}
+
+#new-user {
+	display: inline-block;
+	margin-right: 20px;	
+	font-size: 16px;
+}
+
+/* Create Profile Page */
+
+.profile-input {
+	width: 200px;
+}
+
+.description-input {
+	width: 350px;
+}
+
+#create-profile {
+	padding: 8px 24px;
+	font-size: 16px;
+	margin-top: 10px;
+}
+
+.required-star {
+	color: red;
+}
+
+.required-field {
+	color: red;
+	font-weight: 400;
+}
+
+#form-header-1 {
+	margin-top: 0px;
+}
+
+#form-profile-pic {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	background-color: transparent;
+	color: transparent;
+}
+
+#form-profile-pic-btn {
+	margin-right: 10px;
+}
+
+#form-description-label {
+	margin-top: 20px;
 }

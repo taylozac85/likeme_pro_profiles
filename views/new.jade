@@ -11,34 +11,40 @@ block content
   div.body-container
     div#edit-page-container
       form(method="POST", action="/users", enctype="multipart/form-data")
+        h3#form-header-1 Profile
         p
-          input(type="file", name="file")
+          label(for="username") Full Name <span class="required-star">*</span>
+          input.profile-input(name="username", type="text")
         p
-          label(for="username") Full Name<br />
-          input(name="username")
+          label(for="email") Email <span class="required-star">*</span>
+          input.profile-input(name="email", type="text")
         p
-          label(for="email") Email<br />
-          input(name="email")
+          label(for="password") Password <span class="required-star">*</span>
+          input.profile-input(name="password", type="password")
         p
-          label(for="password") Password<br />
-          input(type="password", name="password")
+          label(for="profile_picture") Profile Picture <span class="required-star">*</span>
+          div(style="position:relative;")
+            a.btn#form-profile-pic-btn(href='#') Choose File...
+              input#form-profile-pic(type="file", name="file_source", size="40",  onchange='$("#upload-file-info").html($(this).val());')
+            span(class='label label-info', id="upload-file-info")
         p
-          label(for="company") Company<br />
-          input(name="company")
+          label#form-description-label(for="description") Description
+          textarea.description-input(rows="5", placeholder="Enter a short bio of you or the business...", name="description")
+        p.required-field *required field
+        h3 Contact Information
         p
-          label(for="location") Location<br />
-          input(name="location")
+          label(for="company") Company Name (if applicable)
+          input.profile-input(name="company", type="text")
         p
-          label(for="description") Company Description<br />
-          textarea(rows="5", placeholder="Enter a short bio...", name="description")
+          label(for="website") Website
+          input.profile-input(name="website", type="text")
         p
-          label(for="website") Website<br />
-          input(name="website")
+          label(for="location") Location
+          input.profile-input(name="location", type="text", placeholder="e.g. Marin County, CA")
         p
-          label(for="phone") Phone Number<br />
-          input(name="phone")
+          label(for="phone") Phone Number
+          input.profile-input(name="phone", type="text")
         p
-          label(for="address") Address<br />
-          input(name="address")
-        p
-          input(type="submit", value="submit")
+          label(for="address") Address
+          input.profile-input(name="address", type="text")
+        button.btn.btn-primary#create-profile(type="submit", type="submit") Create Profile
