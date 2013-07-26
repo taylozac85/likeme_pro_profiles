@@ -6,8 +6,8 @@ block content
         div.navbar-container
           ul.nav.pull-right
             li
-              a#navbar-img-link(href="pro")
-                p.pull-right#pro-profile-nav View Profile
+              a#navbar-img-link(href="#loginModal", data-toggle="modal")
+                p.pull-right#pro-profile-nav Log in
   div.body-container
     div#edit-page-container
       form(method="POST", action="/users", enctype="multipart/form-data")
@@ -25,7 +25,7 @@ block content
           label(for="profile_picture") Profile Picture <span class="required-star">*</span>
           div(style="position:relative;")
             a.btn#form-profile-pic-btn(href='#') Choose File...
-              input#form-profile-pic(type="file", name="file_source", size="40",  onchange='$("#upload-file-info").html($(this).val());')
+              input#form-profile-pic(type="file", name="file", size="40",  onchange='$("#upload-file-info").html($(this).val());')
             span(class='label label-info', id="upload-file-info")
         p
           label#form-description-label(for="description") Description
@@ -48,3 +48,15 @@ block content
           label(for="address") Address
           input.profile-input(name="address", type="text")
         button.btn.btn-primary#create-profile(type="submit", type="submit") Create Profile
+  div#loginModal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="loginModalLabel", aria-hidden="true")
+    div.modal-body
+      button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
+      label E-mail:
+      input.login-input(type="text")
+      label Password:
+      input.login-input(type="text")
+      div
+        a#login Log in
+    div.modal-footer
+      p#new-user New user?
+      a.btn.btn-primary.signin-action-btn(href="new", role="button") Create profile

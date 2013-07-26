@@ -12,8 +12,4 @@ module.exports = function(app) {
   	res.render('pro-profile', {user: req.session.user});
   });
 
-  app.get('/signin', function (req, res){
-	  res.render('signin');
-	});
-
 };
