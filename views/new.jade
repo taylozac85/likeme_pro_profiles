@@ -51,12 +51,13 @@ block content
   div#loginModal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="loginModalLabel", aria-hidden="true")
     div.modal-body
       button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
-      label E-mail:
-      input.login-input(type="text")
-      label Password:
-      input.login-input(type="text")
-      div
-        a#login Log in
+      form(method="POST", action="/session")
+        label(for="email") E-mail:
+        input.login-input(type="text", name="email")
+        label(for="password") Password:
+        input.login-input(type="password", name="password")
+        div
+          input#login(type="submit")
     div.modal-footer
       p#new-user New user?
       a.btn.btn-primary.signin-action-btn(href="new", role="button") Create profile
