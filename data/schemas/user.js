@@ -10,7 +10,8 @@ var UserSchema = new mongoose.Schema({
 	website: String,
 	phone: String,
 	address: String,
-	profile_pic: String
+	profile_pic: String,
+	images: []
 });
 
 module.exports = UserSchema;

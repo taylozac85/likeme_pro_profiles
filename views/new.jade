@@ -12,7 +12,7 @@ block content
     div#edit-page-container
       form(method="POST", action="/users", enctype="multipart/form-data")
         p
-          input(type="file", name="profile_pic")
+          input(type="file", name="file")
         p
           label(for="username") Full Name<br />
           input(name="username")
@@ -41,4 +41,4 @@ block content
           label(for="address") Address<br />
           input(name="address")
         p
-          input(type="submit", value="Create")
+          input(type="submit", value="submit")
