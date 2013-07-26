@@ -41,9 +41,11 @@ module.exports = function(app) {
 
         }
         return;
-      }    
+      } else {
+        res.redirect(307, '/session');
+      }
     });
-    res.redirect(307, '/session');
+
   });
 
 };
