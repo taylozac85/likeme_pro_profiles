@@ -15,7 +15,7 @@ module.exports = function(app) {
 
 				if (user) {
 					req.session.user = user;
-					res.redirect('/profile');
+					res.redirect('/pro-profile');
 				} else {
 					res.redirect('/session/new');
 				}

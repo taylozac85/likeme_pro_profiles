@@ -24,7 +24,7 @@ module.exports = function(app) {
         }
         return;
       }
-      res.redirect('/profile');
+      res.redirect('/pro-profile');
     });
   });
 

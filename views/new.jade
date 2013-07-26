@@ -1,14 +1,44 @@
-h1 New User
+extends layout
 
-form(method="POST", action="/users")
-  p
-    label(for="email") Email<br />
-    input#email(name="email")
-  p
-    label(for="name") Name<br />
-    input#name(name="name")
-  p
-    label(for="password") Password<br />
-    input#password(type="password", name="password")
-  p
-    input(type="submit", value="Create")
+block content
+  div.navbar.navbar-inverse.navbar-fixed-top
+      div.navbar-inner
+        div.navbar-container
+          ul.nav.pull-right
+            li
+              a#navbar-img-link(href="pro")
+                p.pull-right#pro-profile-nav View Profile
+  div.body-container
+    div#edit-page-container
+      form(method="POST", action="/users", enctype="multipart/form-data")
+        p
+          input(type="file", name="profile_pic")
+        p
+          label(for="username") Full Name<br />
+          input(name="username")
+        p
+          label(for="email") Email<br />
+          input(name="email")
+        p
+          label(for="password") Password<br />
+          input(type="password", name="password")
+        p
+          label(for="company") Company<br />
+          input(name="company")
+        p
+          label(for="location") Location<br />
+          input(name="location")
+        p
+          label(for="description") Company Description<br />
+          textarea(rows="5", placeholder="Enter a short bio...", name="description")
+        p
+          label(for="website") Website<br />
+          input(name="website")
+        p
+          label(for="phone") Phone Number<br />
+          input(name="phone")
+        p
+          label(for="address") Address<br />
+          input(name="address")
+        p
+          input(type="submit", value="Create")
