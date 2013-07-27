@@ -1,5 +1,11 @@
 var mongoose = require('mongoose');
 
+var AlbumSchema = new mongoose.Schema({
+	name: String
+});
+
+// var Album = mongoose.model('Album', AlbumSchema);
+
 var UserSchema = new mongoose.Schema({
 	username: { 
 	  type: String, 
@@ -21,7 +27,7 @@ var UserSchema = new mongoose.Schema({
 	phone: String,
 	address: String,
 	profile_pic: String,
-	images: []
+	albums: [{ name: 'string' }]
 });
 
 module.exports = UserSchema;
