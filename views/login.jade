@@ -1,11 +1,15 @@
-h1 Log in
+extends layout
 
-form(method="POST", action="/session")
-	p
-		label(for="email") email:
-		input#email(name="email")
-	p
-		label(for="password") Password:
-		input#password(type="password", name="password")
-	p
-		input(type="submit", value="Log in");
+block content
+	div#loginModal.modal(tabindex="-1", role="dialog", aria-labelledby="loginModalLabel", aria-hidden="true")
+		div.modal-body
+			form#login-form(method="POST", action="/session")
+				label(for="email") E-mail:
+				input.login-input(type="text", name="email")
+				label(for="password") Password:
+				input.login-input(type="password", name="password")
+				div
+					input.btn.btn-primary#login(type="submit", value="Log in")
+		div.modal-footer
+			p#new-user New user?
+			a.btn.btn-primary.signin-action-btn(href="users/new", role="button") Create profile

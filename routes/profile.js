@@ -9,7 +9,11 @@ module.exports = function(app) {
   });
 
   app.get('/pro-profile', function(req, res){
-  	res.render('pro-profile', {user: req.session.user});
+  	if (req.session.user) {
+  		res.render('pro-profile', {user: req.session.user});
+  	} else {
+  		res.redirect('login');
+  	};
   });
 
 };

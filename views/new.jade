@@ -6,6 +6,9 @@ block content
         div.navbar-container
           ul.nav.pull-right
             li
+              a#navbar-img-link(href="../demo")
+                p.pull-right#pro-profile-nav-demo View Demo
+            li
               a#navbar-img-link(href="#loginModal", data-toggle="modal")
                 p.pull-right#pro-profile-nav Log in
   div.body-container
@@ -37,7 +40,7 @@ block content
           input.profile-input(name="company", type="text")
         p
           label(for="website") Website
-          input.profile-input(name="website", type="text")
+          input.profile-input(name="website", type="text", placeholder="e.g. www.google.com")
         p
           label(for="location") Location
           input.profile-input(name="location", type="text", placeholder="e.g. Marin County, CA")
@@ -47,6 +50,10 @@ block content
         p
           label(for="address") Address
           input.profile-input(name="address", type="text")
+        //
+          p
+            label(for="albums[0].album_name") Album Name
+            input.profile-input(name="albums[0].album_name", type="text")
         button.btn.btn-primary#create-profile(type="submit", type="submit") Create Profile
   div#loginModal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="loginModalLabel", aria-hidden="true")
     div.modal-body

@@ -97,23 +97,82 @@ $(function(){
    $('#pro-modal-slide-right').on('click', function(){
         var $focusPhoto = $('#profile-modal-large-img');
         var $focusSource = $focusPhoto.attr('src');
-        var $sourceIndex = parseInt($focusSource.slice(15,16));
-        if ($sourceIndex == 10) {
-            $focusPhoto.attr('src', "images/coffee1-2.jpg");
-        } else {
-            $focusPhoto.attr('src', "images/coffee1-" + ($sourceIndex + 1) + ".jpg");
-        }    
+        if ($focusSource.indexOf("coffee") != -1) {
+            var $sourceIndex = parseInt($focusSource.slice(15,16));
+            if ($sourceIndex == 10) {
+                $focusPhoto.attr('src', "images/coffee1-2.jpg");
+            } else {
+                $focusPhoto.attr('src', "images/coffee1-" + ($sourceIndex + 1) + ".jpg");
+            };
+        } else if ($focusSource.indexOf("wine") != -1) {
+            var $sourceIndex = parseInt($focusSource.slice(13,14));
+            if ($sourceIndex == 2) {
+                $focusPhoto.attr('src', "images/wine1-1.jpg");
+            } else {
+                $focusPhoto.attr('src', "images/wine1-" + ($sourceIndex + 1) + ".jpg");
+            };
+        } else if ($focusSource.indexOf("yoga") != -1) {
+            var $sourceIndex = parseInt($focusSource.slice(14,15));
+            if ($sourceIndex == 7) {
+                $focusPhoto.attr('src', "images/yoga10-1.jpg");
+            } else {
+                $focusPhoto.attr('src', "images/yoga10-" + ($sourceIndex + 1) + ".jpg");
+            };
+        };
+           
     });
 
     $('#pro-modal-slide-left').on('click', function(){
         var $focusPhoto = $('#profile-modal-large-img');
         var $focusSource = $focusPhoto.attr('src');
-        var $sourceIndex = parseInt($focusSource.slice(15,16));
-        if ($sourceIndex == 1) {
-            $focusPhoto.attr('src', "images/coffee1-9.jpg");
-        } else {
-            $focusPhoto.attr('src', "images/coffee1-" + ($sourceIndex - 1) + ".jpg");
-        }    
+        if ($focusSource.indexOf("coffee") != -1) {
+            var $sourceIndex = parseInt($focusSource.slice(15,16));
+            if ($sourceIndex == 1) {
+                $focusPhoto.attr('src', "images/coffee1-9.jpg");
+            } else {
+                $focusPhoto.attr('src', "images/coffee1-" + ($sourceIndex - 1) + ".jpg");
+            };
+        } else if ($focusSource.indexOf("wine") != -1) {
+            var $sourceIndex = parseInt($focusSource.slice(13,14));
+            if ($sourceIndex == 1) {
+                $focusPhoto.attr('src', "images/wine1-2.jpg");
+            } else {
+                $focusPhoto.attr('src', "images/wine1-" + ($sourceIndex - 1) + ".jpg");
+            };
+        } else if ($focusSource.indexOf("yoga") != -1) {
+            var $sourceIndex = parseInt($focusSource.slice(14,15));
+            if ($sourceIndex == 1) {
+                $focusPhoto.attr('src', "images/yoga10-7.jpg");
+            } else {
+                $focusPhoto.attr('src', "images/yoga10-" + ($sourceIndex - 1) + ".jpg");
+            };
+        };
+           
+    });
+
+    // $('#pro-modal-slide-left').on('click', function(){
+    //     var $focusPhoto = $('#profile-modal-large-img');
+    //     var $focusSource = $focusPhoto.attr('src');
+    //     var $sourceIndex = parseInt($focusSource.slice(15,16));
+    //     if ($sourceIndex == 1) {
+    //         $focusPhoto.attr('src', "images/coffee1-9.jpg");
+    //     } else {
+    //         $focusPhoto.attr('src', "images/coffee1-" + ($sourceIndex - 1) + ".jpg");
+    //     }    
+    // });
+
+    /* Album 2 */
+
+    $('#pro-album-2').on('click', function(){
+        var $focusPhoto = $('img#profile-modal-large-img');
+        $focusPhoto.attr('src', 'images/wine1-1.jpg');
+    });
+
+    /* Album 3 */
+
+    $('#pro-album-3').on('click', function(){
+        var $focusPhoto = $('img#profile-modal-large-img');
+        $focusPhoto.attr('src', 'images/yoga10-1.jpg');
     });
 
     // More/Less
