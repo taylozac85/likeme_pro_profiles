@@ -32,16 +32,10 @@ html
 							p#pro-location= user.location
 							div#pro-description
 								p= user.description
-								//
-									div#pro-description-more
-										p Services Provided:
-										p We offer a variety of interior design services ranging from project management to furniture sales.
-										a#pro-less(href="#") less
-									a#pro-more(href="#") ...more
 				div.span3#pro-contact-container
-					a#pro-contact-me.btn.btn-primary(href="mailto:someone@example.com?Subject=Hello%20again", target="none") Contact Me
+					a#pro-contact-me.btn.btn-primary(href="mailto:#{user.email}?Subject=Hello", target="none") Contact Me
 					p.pro-contact-info
-						a(href="#") #{user.website}
+						a(href="//#{user.website}", target="none") #{user.website}
 					p.pro-contact-info <strong>Phone:</strong>  #{user.phone}
 					p.pro-contact-info <strong>Email:</strong>  #{user.email}
 					p.pro-contact-info <strong>Address:</strong> #{user.address}

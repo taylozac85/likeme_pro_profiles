@@ -42,6 +42,7 @@ require('./routes/index')(app);
 require('./routes/session')(app);
 require('./routes/users')(app);
 require('./routes/profile')(app);
+require('./routes/login')(app);
 require('./routes/logout')(app);
 require('./routes/photos')(app);
 require('./routes/demo')(app);

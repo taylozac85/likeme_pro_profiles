@@ -21,7 +21,6 @@ var UserSchema = new mongoose.Schema({
 	phone: String,
 	address: String,
 	profile_pic: String,
-	images: []
 });
 
 module.exports = UserSchema;

@@ -52,15 +52,15 @@ html
 						div.pro-album-label-container
 							div.pro-album-label
 								p.search-pic-name Strand 21 Coffee
-				div.pro-album-cover
-					a(href="#")
-						img.pro-album-pic(src="images/wine1-1.jpg")
+				div#pro-album-2.pro-album-cover
+					a(href="#pro-photo-modal", role="button", data-toggle="modal")
+						img#pro-album.pro-album-pic(src="images/wine1-1.jpg")
 						div.pro-album-label-container
 							div.pro-album-label
 								p.search-pic-name Wine Collection
-				div.pro-album-cover
-					a(href="#")
-						img.pro-album-pic(src="images/yoga10-2.jpg")
+				div#pro-album-3.pro-album-cover
+					a(href="#pro-photo-modal", role="button", data-toggle="modal")
+						img#pro-album.pro-album-pic(src="images/yoga10-1.jpg")
 						div.pro-album-label-container
 							div.pro-album-label
 								p.search-pic-name Yoga Savana
@@ -70,4 +70,16 @@ html
 				img#profile-modal-large-img(src="#")
 			a#pro-modal-slide-left(class="carousel-control left", href="#myCarousel", data-slide="prev") &lsaquo;
 			a#pro-modal-slide-right(class="carousel-control right", href="#myCarousel", data-slide="next") &rsaquo;
-		
+		div#loginModal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="loginModalLabel", aria-hidden="true")
+			div.modal-body
+				button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
+				form#login-form(method="POST", action="/session")
+					label(for="email") E-mail:
+					input.login-input(type="text", name="email")
+					label(for="password") Password:
+					input.login-input(type="password", name="password")
+					div
+						input.btn.btn-primary#login(type="submit", value="Log in")
+				div.modal-footer
+					p#new-user New user?
+					a.btn.btn-primary.signin-action-btn(href="new", role="button") Create profile

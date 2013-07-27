@@ -45,7 +45,6 @@ module.exports = function(app) {
         res.redirect(307, '/session');
       }
     });
-
   });
 
 };
