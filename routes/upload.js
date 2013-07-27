@@ -15,7 +15,7 @@ module.exports = function(app) {
 
   app.get('/upload/new', function(req, res) {
   	if (req.session.user) {
-  		res.render('upload', {message: 'upload a photo after you submit an album name', message1: 'submit an album name'});
+  		res.render('upload', {message: 'Upload a photo after you submit an album name', message1: 'Submit an album name'});
   	} else {
   		res.render('index');
   	}
@@ -50,18 +50,17 @@ module.exports = function(app) {
           res.send('Conflict', 409);
         } else {
           if (err.name === 'ValidationError') {
-            return res.send(Object.keys(err.errors).map(function(errField) {
-              return err.errors[errField].message;
-            }).join('. '), 406);
+            return res.send('Oy! Your Album needs a name. Go back and submit an album name! Preferably something funky.')
           } else {
           next(err);
           }
 
         }
         return;
-      } 
+      } else {
+        res.render('upload', {message: 'Upload the photo!', message1: 'The Album ' + req.body.name + ' has been created! Choose a photo.'});
+      }
     });
-  	res.redirect('/upload/new');
   });
 
 };

@@ -45,7 +45,6 @@ require('./routes/profile')(app);
 require('./routes/login')(app);
 require('./routes/logout')(app);
 require('./routes/demo')(app);
-require('./routes/album')(app);
 require('./routes/upload')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
