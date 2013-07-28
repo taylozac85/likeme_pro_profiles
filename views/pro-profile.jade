@@ -48,10 +48,11 @@ html
 			div#pro-album-container
 				div#pro-album-1.pro-album-cover.hide
 					a(href="#pro-photo-modal", role="button", data-toggle="modal")
-						img#pro-album.pro-album-pic(src="#")
+						img#pro-album1-cover.pro-album-pic(src="#")
 						div.pro-album-label-container
 							div.pro-album-label
-								p.search-pic-name Strand 21 Coffee
+								p.search-pic-name= album.name
+				a#create-album-link(href="upload/new") Create an album
 				//
 					div.pro-album-cover
 						a(href="#")
