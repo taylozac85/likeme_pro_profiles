@@ -10,10 +10,17 @@ html
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
 	body
 		script(type="text/javascript", src="/javascripts/photo-modal.js")
+		script(type="text/javascript", src="/javascripts/album-logic.js")
+		// script
+		// 	var user = !{JSON.stringify(user)};
+		// 	var album = !{JSON.stringify(album)};
 		div.navbar.navbar-inverse.navbar-fixed-top
 			div.navbar-inner
 				div.navbar-container
 					ul.nav.pull-right
+						li
+							a#navbar-img-link(href="upload/new")
+								p.pull-right#pro-profile-nav-demo Add Album
 						li
 							a#navbar-img-link(href="demo")
 								p.pull-right#pro-profile-nav-demo View Demo
@@ -40,24 +47,25 @@ html
 					p.pro-contact-info <strong>Email:</strong>  #{user.email}
 					p.pro-contact-info <strong>Address:</strong> #{user.address}
 			div#pro-album-container
-				div#pro-album-1.pro-album-cover
+				div#pro-album-1.pro-album-cover.hide
 					a(href="#pro-photo-modal", role="button", data-toggle="modal")
 						img#pro-album.pro-album-pic(src="#")
 						div.pro-album-label-container
 							div.pro-album-label
 								p.search-pic-name Strand 21 Coffee
-				div.pro-album-cover
-					a(href="#")
-						img.pro-album-pic(src="#")
-						div.pro-album-label-container
-							div.pro-album-label
-								p.search-pic-name Wine Collection
-				div.pro-album-cover
-					a(href="#")
-						img.pro-album-pic(src="#")
-						div.pro-album-label-container
-							div.pro-album-label
-								p.search-pic-name Yoga Savana
+				//
+					div.pro-album-cover
+						a(href="#")
+							img.pro-album-pic(src="#")
+							div.pro-album-label-container
+								div.pro-album-label
+									p.search-pic-name Wine Collection
+					div.pro-album-cover
+						a(href="#")
+							img.pro-album-pic(src="#")
+							div.pro-album-label-container
+								div.pro-album-label
+									p.search-pic-name Yoga Savana
 		div#pro-photo-modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="profile-photo-modalLabel", aria-hidden="true")
 			div#profile-modal-large-container
 				button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
