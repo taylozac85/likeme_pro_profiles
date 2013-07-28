@@ -8,8 +8,7 @@ module.exports = function(app) {
   });
 
   app.get('/pro-profile', loggedIn, function(req, res, next){
-    var instance = req.session.user.email;
-    Album.findOne({ 'user_email' : instance }, function(err, album){
+    Album.findOne({ 'user_email' : req.session.user.email }, function(err, album){
       if (!album){
         console.log("No Album");
         res.render('pro-profile', {user: req.session.user});
@@ -18,6 +17,5 @@ module.exports = function(app) {
     		res.render('pro-profile', {user: req.session.user, album: album});
       }
     });
-
   });
 };
