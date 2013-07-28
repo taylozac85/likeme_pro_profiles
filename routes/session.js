@@ -7,19 +7,17 @@ module.exports = function(app) {
   });
 
   app.post('/session', function(req, res) {
-		User.findOne({email: req.body.email, password: req.body.password},
-			function(err, user) {
-				if (err) {
-					return next (err);
-				}
-
-				if (user) {
-					req.session.user = user;
-					res.redirect('/pro-profile');
-				} else {
-					res.redirect('/session/new');
-				}
-			});
+		User.findOne({email: req.body.email, password: req.body.password}, function(err, user) {
+			if (err) {
+				return next (err);
+			}
+			if (user) {
+				req.session.user = user;
+				res.redirect('/pro-profile');
+			} else {
+				res.redirect('/session/new');
+			}
+		});
 	});
 
 };
