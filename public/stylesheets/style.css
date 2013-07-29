@@ -1446,15 +1446,29 @@ img#largestModalPhoto {
 	position: relative;
 	border: 1px solid rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
-	display: inline-block;
 	margin: 0px 35px 35px 0px;
 	overflow: hidden;
+	background-position: center center;
 }
 
 .pro-album-pic {
 	height: 250px;
 	width: auto;
 	border-radius: 2px;
+	position: absolute;
+	
+}
+
+.fillwidth {
+	height: 250px;
+	width: auto;
+	border-radius: 2px;	
+}
+
+.fillheight {
+	width: 30px;
+	height: auto;
+	border-radius: 2px;		
 }
 
 #profile-modal-large-container {
