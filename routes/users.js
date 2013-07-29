@@ -17,14 +17,42 @@ module.exports = function(app) {
   });
 
   app.post('/users', function(req, res, next) {
-    var tempPath = req.files.file.path,
-        targetPath = 'public/img_uploads/image' + setTime() + '.png';
-    if (path.extname(req.files.file.name).toLowerCase() === '.png') {
-        console.log("this is officially registering as PNG");
-        fs.rename(tempPath, targetPath, function(err) {
-          if (err) throw err;
-        }); 
+
+    if (fs.readFile(req.files.file.path) == undefined) {
+      console.log("Fuck Yes!");
     };
+
+      var tempPath = req.files.file.path,
+          jpgPath = 'public/img_uploads/image' + setTime() + '.jpg',
+          jpegPath = 'public/img_uploads/image' + setTime() + '.jpeg',
+          targetPath = 'public/img_uploads/image' + setTime() + '.png',
+          extension = path.extname(req.files.file.name).toLowerCase();
+
+
+      if (extension == undefined && (extension !== '.png' || extension !== '.jpeg' || extension !== 'jpg')) {
+        res.send("Sorry you can only upload pngs and jpegs. Please go back and upload a different picture.");
+      }
+
+
+      if (path.extname(req.files.file.name).toLowerCase() === '.png') {
+          console.log("this is officially registering as PNG");
+          fs.rename(tempPath, targetPath, function(err) {
+            if (err) throw err;
+          }); 
+      } else if 
+          (path.extname(req.files.file.name).toLowerCase() === '.jpeg') {
+            fs.rename(tempPath, jpegPath, function(err) {
+              if (err) throw err;
+                console.log("Upload completed!");
+                });
+      } else if 
+          (path.extname(req.files.file.name).toLowerCase() === '.jpg') {
+            fs.rename(tempPath, jpgPath, function(err) {
+              if (err) throw err;
+                console.log("Upload completed!");
+                });
+        } 
+
     req.body.profile_pic = targetPath.slice(7);
     User.create(req.body, function(err) {      
       if (err) {
