@@ -7,7 +7,7 @@ $(function(){
 
 		$('#pro-album-1').show();
 		var album_cover = album.images[0];
-		$('#pro-album1-cover').attr('src', "images/coffee1-8.jpg");
+		$('#pro-album1-cover').attr('src', album_cover);
 
 		$('#pro-album-1').on('click', function(){
       var $focusPhoto = $('#profile-modal-large-img');
@@ -58,7 +58,7 @@ $(function(){
 
 	(function() {
 		var newImg = new Image();
-		imgSrc = "images/coffee1-8.jpg";
+		imgSrc = album_cover;
 
 		newImg.onload = function() {
 			var height = newImg.height;

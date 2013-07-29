@@ -1575,3 +1575,9 @@ label {
 #form-description-label {
 	margin-top: 20px;
 }
+
+/* Creat album */
+#create-album-btn {
+	padding: 6px 18px;
+	font-size: 16px;
+}

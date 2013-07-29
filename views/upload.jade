@@ -1,20 +1,33 @@
-h1 upload photo
+extends layout
 
-form(action="/upload", method="POST")
-	p
-		label(for="name") album name:
-		input#name(name="name")
-	p
-		input(type="submit", value="submit")
-
-p #{message1}	
-
-form(action="/upload/photo", method="POST", enctype="multipart/form-data")
-
-	p
-		input(type="file", name="file")
-	p
-		input(type="submit", value="submit")
-	a(href="../pro-profile") back to profile
-
-p #{message}
+block content
+	div.navbar.navbar-inverse.navbar-fixed-top
+		div.navbar-inner
+			div.navbar-container
+				ul.nav.pull-right
+					li
+						a#navbar-img-link(href="../demo")
+							p.pull-right#pro-profile-nav-demo View Demo
+					li
+						a#navbar-img-link(href="#loginModal", data-toggle="modal")
+							p.pull-right#pro-profile-nav Log in
+	div.body-container
+		div#edit-page-container
+			h3#form-header-1 Create an album
+			form(action="/upload", method="POST")
+				div#create-album-name
+					p
+						label(for="name") Album Name:
+						input.profile-input(name="name", type="text")
+					p
+						button.btn.btn-primary#create-album-btn(type="submit") Submit
+			//p #{message1}	
+			form(action="/upload/photo", method="POST", enctype="multipart/form-data")
+				p
+					div(style="position:relative;")
+						a.btn#form-profile-pic-btn(href='#') Choose File...
+							input#form-profile-pic(type="file", name="file", size="40",  onchange='$("#upload-file-info").html($(this).val());')
+						span(class='label label-info', id="upload-file-info")
+				p
+					button.btn.btn-primary#create-album-btn(type="submit") Submit
+				a(href="../pro-profile") back to profile
