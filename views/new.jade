@@ -31,6 +31,8 @@ block content
               input#form-profile-pic(type="file", name="file", size="40",  onchange='$("#upload-file-info").html($(this).val());')
             span(class='label label-info', id="upload-file-info")
         p
+          #{message}
+        p
           label#form-description-label(for="description") Description
           textarea.description-input(rows="5", placeholder="Enter a short bio of you or the business...", name="description")
         p.required-field *required field
