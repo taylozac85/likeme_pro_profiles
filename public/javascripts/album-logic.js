@@ -3,6 +3,8 @@ $(function(){
 		
 		$('#create-album-link').hide();
 
+		$('#album-label').html(album.name);
+
 		$('#pro-album-1').show();
 		var album_cover = album.images[0];
 		$('#pro-album1-cover').attr('src', "images/coffee1-8.jpg");
