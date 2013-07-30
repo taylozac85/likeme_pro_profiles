@@ -13,6 +13,10 @@ module.exports = function(app) {
     return y;
   }
 
+  app.get('/oops1', function(req, res) {
+    res.render('oops1');
+  });
+
   app.get('/upload/new', function(req, res) {
   	if (req.session.user) {
   		res.render('upload', {message: 'Upload a photo after you submit an album name', message1: 'Submit an album name'});
@@ -23,21 +27,49 @@ module.exports = function(app) {
 
   app.post('/upload/photo', function(req, res){
   	
-  	var tempPath = req.files.file.path,
-        targetPath = 'public/img_uploads/image' + setTime() + '.png';
-    if (path.extname(req.files.file.name).toLowerCase() === '.png') {
-        console.log("this is officially registering as PNG");
+    var tempPath = req.files.file.path;
+    var extension = path.extname(req.files.file.name).toLowerCase();
+    if (extension == ".png") {
+      targetPath = 'public/img_uploads/image' + setTime() + '.png';
+    } else if (extension == ".jpeg") {
+      targetPath = 'public/img_uploads/image' + setTime() + '.jpeg';
+    } else if (extension == ".jpg") {
+      targetPath = 'public/img_uploads/image' + setTime() + '.jpg';
+    } else {
+      console.log("There is a problem setting the targetPath");
+    };
+
+    if (extension !== '.png' && extension !== '.jpeg' && extension !== '.jpg') {
+      res.redirect('/oops1');
+    } else {
         fs.rename(tempPath, targetPath, function(err) {
           if (err) throw err;
         }); 
-    };
-    var email = req.session.user.email;
-    Album.findOne({ 'user_email' : email}, function (err, album){
-    	album.images.push(targetPath.slice(7));
-    	album.save()
-    });
-    res.render('upload', {message: 'Upload another photo?', message1: 'Nice!'})
+        var email = req.session.user.email;
+        Album.findOne({ 'user_email' : email}, function (err, album){
+          album.images.push(targetPath.slice(7));
+          album.save();
+        });
+        res.render('upload', {message: 'Upload another photo?', message1: 'Nice!'})
+      }
   });
+
+
+  	// var tempPath = req.files.file.path,
+   //      targetPath = 'public/img_uploads/image' + setTime() + '.png';
+   //  if (path.extname(req.files.file.name).toLowerCase() === '.png') {
+   //      console.log("this is officially registering as PNG");
+   //      fs.rename(tempPath, targetPath, function(err) {
+   //        if (err) throw err;
+   //      }); 
+   //  };
+  //   var email = req.session.user.email;
+  //   Album.findOne({ 'user_email' : email}, function (err, album){
+  //   	album.images.push(targetPath.slice(7));
+  //   	album.save()
+  //   });
+  //   res.render('upload', {message: 'Upload another photo?', message1: 'Nice!'})
+  // });
 
 
 
