@@ -16,7 +16,7 @@ $(function(){
 
 		var i = 0;
 
-		$('#pro-modal-slide-right').on('click', function(){
+		$('#pro-profile-modal-slide-right').on('click', function(){
 	    var $focusPhoto = $('#profile-modal-large-img');
 	    var focusSource = $focusPhoto.attr('src');
 	    var album_length = album.images.length;
@@ -30,7 +30,7 @@ $(function(){
     	};
 		});
 
-		$('#pro-modal-slide-left').on('click', function(){
+		$('#pro-profile-modal-slide-left').on('click', function(){
 	    var $focusPhoto = $('#profile-modal-large-img');
 	    var focusSource = $focusPhoto.attr('src');
 	    var album_length = album.images.length;
@@ -75,11 +75,6 @@ $(function(){
 		}
 
 		newImg.src = imgSrc; // this must be done AFTER setting onload
-
-		
-
-		
-		
 	
 	}).call(this);
 	

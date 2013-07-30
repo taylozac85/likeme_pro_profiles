@@ -1369,11 +1369,12 @@ img#largestModalPhoto {
 	margin: 5px -5px 0px 0px;	
 }
 
-#pro-person-pic {
+#pro-person-pic-background {
 	height: 150px;
 	width: 150px;
 	border: 3px solid gray;
 	border-radius: 4px;
+	background-size: cover;
 }
 
 #pro-info-container {
@@ -1443,10 +1444,11 @@ img#largestModalPhoto {
 .pro-album-cover {
 	width: 330px;
 	height: 250px;
+	display: inline-block;
 	position: relative;
 	border: 1px solid rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
-	margin: 0px 35px 35px 0px;
+	margin: 0px 35px 30px 0px;
 	overflow: hidden;
 	background-position: center center;
 }

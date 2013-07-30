@@ -30,8 +30,7 @@ html
 			div.row-fluid
 				div.span9
 					div.row-fluid
-						div.span3
-							img#pro-person-pic(src=user.profile_pic)
+						div.span3#pro-person-pic-background(style="background: url(#{user.profile_pic}) no-repeat center center; background-size: cover")
 						div.span9#pro-info-container
 							h4#pro-person-name= user.username
 							p#pro-company-name= user.company
@@ -52,7 +51,7 @@ html
 						div.pro-album-label-container
 							div#album-label.pro-album-label
 								
-				a#create-album-link(href="upload/new") Create an album
+				a#create-album-link(href="upload/new") Add an album
 				//
 					div.pro-album-cover
 						a(href="#")
@@ -70,6 +69,6 @@ html
 			div#profile-modal-large-container
 				button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
 				img#profile-modal-large-img(src="#")
-			a#pro-modal-slide-left(class="carousel-control left", href="#myCarousel", data-slide="prev") &lsaquo;
-			a#pro-modal-slide-right(class="carousel-control right", href="#myCarousel", data-slide="next") &rsaquo;
+			a#pro-profile-modal-slide-left(class="carousel-control left", href="#myCarousel", data-slide="prev") &lsaquo;
+			a#pro-profile-modal-slide-right(class="carousel-control right", href="#myCarousel", data-slide="next") &rsaquo;
 		
