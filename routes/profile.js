@@ -30,6 +30,7 @@ module.exports = function(app) {
   app.get('/pro-profile', loggedIn, function(req, res, next){
     bounce = req.session.user.email;
     User.findOne({email: bounce}, function(err, user) {
+      sleep(10000);
       if (err) {
         return next (err);
       }
