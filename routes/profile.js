@@ -95,7 +95,6 @@ module.exports = function(app) {
         });
       }
     });
-    sleep(10000);
     res.redirect('/pro-profile');
   });
 
