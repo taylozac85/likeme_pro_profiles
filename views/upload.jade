@@ -2,6 +2,9 @@ extends layout
 
 block content
 	script(type="text/javascript", src="/javascripts/create-album.js")
+	script
+		var hide = !{JSON.stringify(hide)};
+		alert(hide);
 	div.navbar.navbar-inverse.navbar-fixed-top
 		div.navbar-inner
 			div.navbar-container
