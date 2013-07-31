@@ -1465,7 +1465,13 @@ img#largestModalPhoto {
 	width: auto;
 	border-radius: 2px;
 	position: absolute;
-	
+}
+
+#album-cover-background {
+	height: 250px;
+	width: 330px;
+	border-radius: 2px;
+	background-size: cover;
 }
 
 .fillwidth {
@@ -1586,6 +1592,7 @@ label {
 }
 
 /* Creat album */
+
 #create-album-btn {
 	padding: 6px 18px;
 	font-size: 16px;
