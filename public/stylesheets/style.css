@@ -1369,9 +1369,16 @@ img#largestModalPhoto {
 	margin: 5px -5px 0px 0px;	
 }
 
-#pro-person-pic-background {
+#pro-person-pic {
 	height: 150px;
 	width: 150px;
+	border: 3px solid gray;
+	border-radius: 4px;
+}
+
+#pro-person-pic-background {
+	height: 155px;
+	width: 155px;
 	border: 3px solid gray;
 	border-radius: 4px;
 	background-size: cover;
