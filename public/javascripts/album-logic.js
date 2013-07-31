@@ -5,11 +5,11 @@ $(function(){
 
 		$('#album-label').html(album.name);
 
-		$('#pro-album-1').show();
+		$('#pro-profile-album-1').show();
 		var album_cover = album.images[0];
 		$('#pro-album1-cover').attr('src', album_cover);
 
-		$('#pro-album-1').on('click', function(){
+		$('#pro-profile-album-1').on('click', function(){
       var $focusPhoto = $('#profile-modal-large-img');
       $focusPhoto.attr('src', album_cover);
     });
@@ -65,7 +65,7 @@ $(function(){
 	// 		var width = newImg.width;
 	// 		console.log('The image size is '+width+'*'+height);
 			
-	// 		var $album_cover = $('#pro-album1-cover');
+	// 		var $album_cover = $('#pro--profile-album1-cover');
 	// 		if (width / height < 330 / 250) {
 	// 			$album_cover.css('width', '330');
 	// 			$album_cover.css('height', 'auto');

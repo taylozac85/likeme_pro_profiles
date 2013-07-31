@@ -23,7 +23,7 @@ module.exports = function(app) {
     if (!req.session.user) {
       res.send("Very sorry but a user with that email already exists please go back and sign in or create a new account.")
     } else {
-    res.render('edit-profile', {user: req.session.user});
+      res.render('edit-profile', {user: req.session.user});
     }
   });
 
@@ -34,7 +34,7 @@ module.exports = function(app) {
         return next (err);
       }
       if (user) {
-      req.session.user = user;
+        req.session.user = user;
       }
     });
     Album.findOne({ 'user_email' : req.session.user.email }, function(err, album){

@@ -11,7 +11,7 @@
 	min-height: 650px;
 	margin: 44px auto 0px auto;
 	padding: 30px 5px;
-	background-color: rgba(247, 247, 247, .8)
+	background-color: rgba(247, 247, 247, .8);
 }
 
 .body-container-convert {
@@ -1358,7 +1358,8 @@ img#largestModalPhoto {
 	min-height: 650px;
 	margin: 44px auto 0px auto;
 	padding: 30px 15px;
-	background-color: rgba(247, 247, 247, .8)
+	background-color: rgba(247, 247, 247, .8);
+	position: relative;
 }
 
 #pro-profile-nav {
@@ -1596,4 +1597,39 @@ label {
 #create-album-btn {
 	padding: 6px 18px;
 	font-size: 16px;
+}
+
+/* Sign up button on Demo */
+
+div#master-container {
+	position: relative;
+	float: right;
+	margin-right: -185px;
+	width: 300px;
+	font-size: 18px;
+	border-radius: 9px 9px 0 0;
+	border: none;
+	cursor: hand; 
+	cursor: pointer;
+}
+
+div#master-btn-container {
+  position: fixed; 
+  bottom: 0px;
+}
+
+button#master-btn {
+	position: relative;
+	margin: 0px;
+	padding: 6px 24px;
+	font-size: 18px;
+	color: white;
+	background-color: #04C;
+	border-radius: 9px 9px 0 0;
+	border-top: 3px solid #04C;
+	border-right: 3px solid #04C;
+	border-left: 3px solid #04C;
+	border-bottom: 0px;
+	cursor: hand; 
+	cursor: pointer;
 }

@@ -9,10 +9,13 @@ html
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
 	body
+		script(type="text/javascript", src="/javascripts/script.js")
 		script(type="text/javascript", src="/javascripts/photo-modal.js")
 		script(type="text/javascript", src="/javascripts/album-logic.js")
 		script
 			var album = !{JSON.stringify(album)};
+		script
+			var user = !{JSON.stringify(user)};
 		div.navbar.navbar-inverse.navbar-fixed-top
 			div.navbar-inner
 				div.navbar-container
@@ -20,9 +23,12 @@ html
 						li
 							a#navbar-img-link(href="demo")
 								p.pull-right#pro-profile-nav-demo View Demo
-							li
-								a#navbar-img-link(href="upload/new")
-									p.pull-right#pro-profile-nav Edit Album
+						li
+							a#navbar-img-link(href="edit-profile")
+								p.pull-right#pro-profile-nav-demo Edit Profile
+						li
+							a#navbar-img-link(href="upload/new")
+								p.pull-right#pro-profile-nav Edit Album
 		div.pro-body-container-gray
 			div.row-fluid
 				div.span9
@@ -33,7 +39,7 @@ html
 							p#pro-company-name= user.company
 							p#pro-location= user.location
 							div#pro-description
-								p= user.description
+								p#pro-user-desription
 				div.span3#pro-contact-container
 					a#pro-contact-me.btn.btn-primary(href="mailto:#{user.email}?Subject=Hello", target="none") Contact Me
 					p.pro-contact-info
@@ -42,10 +48,9 @@ html
 					p.pro-contact-info <strong>Email:</strong>  #{user.email}
 					p.pro-contact-info <strong>Address:</strong> #{user.address}
 			div#pro-album-container
-				div#pro-album-1.pro-album-cover.hide
+				div#pro-profile-album-1.pro-album-cover.hide
 					a(href="#pro-photo-modal", role="button", data-toggle="modal")
 						div#album-cover-background(style="background: url(#{album.images[0]}) no-repeat center center; background-size: cover")
-						//img#pro-album1-cover.pro-album-pic(src="#")
 						div.pro-album-label-container
 							div#album-label.pro-album-label		
 				a#create-album-link(href="upload/new") Add an album

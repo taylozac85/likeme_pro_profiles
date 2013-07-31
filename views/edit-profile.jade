@@ -25,7 +25,7 @@ block content
           #{message}
         p
           label#form-description-label(for="description") Description
-          textarea.description-input(rows="5", name="description", method="PUT", value= user.description)
+          textarea.description-input(rows="5", name="description", method="PUT") #{user.description}
         p.required-field *required field
         h3 Contact Information
         p
@@ -43,10 +43,6 @@ block content
         p
           label(for="address") Address
           input.profile-input(name="address", method="PUT", type="text", value= user.address)
-        //
-          p
-            label(for="albums[0].album_name") Album Name
-            input.profile-input(name="albums[0].album_name", type="text")
         button.btn.btn-primary#create-profile(type="submit") Submit Changes
   div#loginModal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="loginModalLabel", aria-hidden="true")
     div.modal-body
