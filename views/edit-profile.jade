@@ -1,6 +1,9 @@
 extends layout
 
 block content
+  script(type="text/javascript", src="/javascripts/script.js")
+  script
+    var user = !{JSON.stringify(user)};
   div.navbar.navbar-inverse.navbar-fixed-top
       div.navbar-inner
         div.navbar-container
@@ -13,7 +16,7 @@ block content
                 p.pull-right#pro-profile-nav Log in
   div.body-container
     div#edit-page-container
-      form(method="POST", action="/edit-profile", enctype="multipart/form-data")
+      form#edit-form(method="POST", action="/edit-profile", enctype="multipart/form-data", name="editForm")
         h3#form-header-1 Profile
         p
           label(for="profile_picture") Profile Picture

@@ -39,7 +39,6 @@ module.exports = function(app) {
     });
     Album.findOne({ 'user_email' : req.session.user.email }, function(err, album){
       if (!album){
-        console.log("No Album");
         var album = {images: [""]};
         res.render('pro-profile', {user: req.session.user, album: album});
       } else {
@@ -47,6 +46,12 @@ module.exports = function(app) {
       }
     });
   });
+
+  function sleep(milliseconds) {
+    var start = new Date().getTime();
+    while ((new Date().getTime() - start) < milliseconds) {
+    };
+  };
 
   app.post('/edit-profile', function(req, res) {
     User.findOne({ 'username' : req.session.user.username }, function(err, user) {
@@ -63,7 +68,7 @@ module.exports = function(app) {
         } else {
           console.log("There is a problem setting the targetPath");
         };
-
+        
         fs.readFile(tempPath, function(err, data){
           if (err) throw err;
           if (data == "") {
@@ -74,28 +79,23 @@ module.exports = function(app) {
             user.phone = req.body.phone;
             user.address = req.body.address;
             user.save();
-            res.redirect('/pro-profile');
           } else {
-            if (extension !== '.png' && extension !== '.jpeg' && extension !== '.jpg') {
-              res.redirect('/oops');
-            } else {
-              fs.rename(tempPath, targetPath, function(err) {
-                if (err) throw err;
-              }); 
-              user.profile_pic = targetPath.slice(7);
-              user.description = req.body.description;
-              user.company = req.body.company;
-              user.location = req.body.location;
-              user.website = req.body.website;
-              user.phone = req.body.phone;
-              user.address = req.body.address;
-              user.save();
-              res.redirect('/pro-profile')
-            }
+            fs.rename(tempPath, targetPath, function(err) {
+              if (err) throw err;
+            });
+            user.profile_pic = targetPath.slice(7);
+            user.description = req.body.description;
+            user.company = req.body.company;
+            user.location = req.body.location;
+            user.website = req.body.website;
+            user.phone = req.body.phone;
+            user.address = req.body.address;
+            user.save();
           }
         });
       }
     });
+    res.redirect('/pro-profile');
   });
 
 };
