@@ -10,8 +10,8 @@ var express = require('express')
   , fs = require('fs')
   , mongoose = require('mongoose');
 
-var uri = mongodb://heroku_app17242760:84n35dikv6npf2qnj24pnprclr@ds037758.mongolab.com:37758/heroku_app17242760
-mongoose.connect(uri)
+var uri = 'mongodb://heroku_app17242760:84n35dikv6npf2qnj24pnprclr@ds037758.mongolab.com:37758/heroku_app17242760';
+mongoose.connect(uri);
 
 // var dbURL = 'mongodb://localhost/test';
 // var db = mongoose.connect(dbURL);
