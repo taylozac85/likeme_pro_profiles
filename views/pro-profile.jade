@@ -44,10 +44,10 @@ html
 			div#pro-album-container
 				div#pro-album-1.pro-album-cover.hide
 					a(href="#pro-photo-modal", role="button", data-toggle="modal")
-						img#pro-album1-cover.pro-album-pic(src="#")
+						div#album-cover-background(style="background: url(#{album.images[0]}) no-repeat center center; background-size: cover")
+						//img#pro-album1-cover.pro-album-pic(src="#")
 						div.pro-album-label-container
-							div#album-label.pro-album-label
-								
+							div#album-label.pro-album-label		
 				a#create-album-link(href="upload/new") Add an album
 				//
 					div.pro-album-cover
