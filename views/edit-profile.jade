@@ -1,0 +1,63 @@
+extends layout
+
+block content
+  div.navbar.navbar-inverse.navbar-fixed-top
+      div.navbar-inner
+        div.navbar-container
+          ul.nav.pull-right
+            li
+              a#navbar-img-link(href="../demo")
+                p.pull-right#pro-profile-nav-demo View Demo
+            li
+              a#navbar-img-link(href="#loginModal", data-toggle="modal")
+                p.pull-right#pro-profile-nav Log in
+  div.body-container
+    div#edit-page-container
+      form(method="POST", action="/edit-profile", enctype="multipart/form-data")
+        h3#form-header-1 Profile
+        p
+          label(for="profile_picture") Profile Picture
+          div(style="position:relative;")
+            a.btn#form-profile-pic-btn(href='#') Choose File...
+              input#form-profile-pic(type="file", name="file", size="40", method="PUT",  onchange='$("#upload-file-info").html($(this).val());')
+            span(class='label label-info', id="upload-file-info")
+        p
+          #{message}
+        p
+          label#form-description-label(for="description") Description
+          textarea.description-input(rows="5", name="description", method="PUT", value= user.description)
+        p.required-field *required field
+        h3 Contact Information
+        p
+          label(for="company") Company Name (if applicable)
+          input.profile-input(name="company", type="text", method="PUT", value= user.company)
+        p
+          label(for="website") Website
+          input.profile-input(name="website", method="PUT", type="text", value= user.website)
+        p
+          label(for="location") Location
+          input.profile-input(name="location", type="text", method="PUT", value= user.location)
+        p
+          label(for="phone") Phone Number
+          input.profile-input(name="phone", type="text", method="PUT", value= user.phone)
+        p
+          label(for="address") Address
+          input.profile-input(name="address", method="PUT", type="text", value= user.address)
+        //
+          p
+            label(for="albums[0].album_name") Album Name
+            input.profile-input(name="albums[0].album_name", type="text")
+        button.btn.btn-primary#create-profile(type="submit") Submit Changes
+  div#loginModal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="loginModalLabel", aria-hidden="true")
+    div.modal-body
+      button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
+      form#login-form(method="POST", action="/session")
+        label(for="email") E-mail:
+        input.login-input(type="text", name="email")
+        label(for="password") Password:
+        input.login-input(type="password", name="password")
+        div
+          input.btn.btn-primary#login(type="submit", value="Log in")
+    div.modal-footer
+      p#new-user New user?
+      a.btn.btn-primary.signin-action-btn(href="new", role="button") Sign up
