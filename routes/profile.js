@@ -35,14 +35,14 @@ module.exports = function(app) {
       }
       if (user) {
         req.session.user = user;
-      }
-    });
-    Album.findOne({ 'user_email' : req.session.user.email }, function(err, album){
-      if (!album){
-        var album = {images: [""]};
-        res.render('pro-profile', {user: req.session.user, album: album});
-      } else {
-    		res.render('pro-profile', {user: req.session.user, album: album});
+        Album.findOne({ 'user_email' : req.session.user.email }, function(err, album){
+          if (!album){
+            var album = {images: [""]};
+            res.render('pro-profile', {user: req.session.user, album: album});
+          } else {
+            res.render('pro-profile', {user: req.session.user, album: album});
+          }
+        });
       }
     });
   });
