@@ -22,10 +22,13 @@ module.exports = function(app) {
       var email = req.session.user.email;
       Album.findOne({ 'user_email' : email }, function (err, album){
         if (!album) {
-          res.render('upload', hid: hide);
+          var hide = false;
+          var album = { images: [] };
+          res.render('upload', {hide: hide, album: album});
         } else {
-          hide = true;
-          res.render('upload', {hide: hide });
+          var hide = true;
+          var album = album;
+          res.render('upload', {hide: hide, album: album});
         }
       });
   		
@@ -59,7 +62,11 @@ module.exports = function(app) {
           album.images.push(targetPath.slice(7));
           album.save();
         });
-        res.render('upload', {message: 'Upload another photo?', message1: 'Nice!'})
+        Album.findOne({ 'user_email' : email}, function (err, album){
+          var hide = true;
+          var photo_added = true;
+          res.render('upload', {hide: hide, photo_added: photo_added, album: album});
+        });
       }
   });
 
@@ -99,7 +106,9 @@ module.exports = function(app) {
         }
         return;
       } else {
-        res.render('upload', {message: 'Upload the photo!', message1: 'The Album ' + req.body.name + ' has been created! Choose a photo.'});
+        var hide = true;
+        var album = {images: []};
+        res.render('upload', {hide: hide, album: album});
       }
     });
   });

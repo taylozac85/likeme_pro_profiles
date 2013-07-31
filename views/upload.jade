@@ -3,8 +3,11 @@ extends layout
 block content
 	script(type="text/javascript", src="/javascripts/create-album.js")
 	script
-		var hide = !{JSON.stringify(hide)};
-		alert(hide);
+		var hide = !{JSON.stringify(hide)}
+	script
+		var photo_added = !{JSON.stringify(photo_added)}
+	script
+		var album = !{JSON.stringify(album)}
 	div.navbar.navbar-inverse.navbar-fixed-top
 		div.navbar-inner
 			div.navbar-container
@@ -17,8 +20,8 @@ block content
 							p.pull-right#pro-profile-nav-demo My Profile
 	div.body-container
 		div#edit-page-container
-			h3#form-header-1 Create an album
 			div#create-album-name
+				h3.form-header-1 Enter album name
 				form(action="/upload", method="POST")
 					p
 						label(for="name") Album Name:
@@ -26,7 +29,11 @@ block content
 					p
 						button.btn.btn-primary#create-album-btn(type="submit") Submit
 			div#add-album-photos.hide
-				p Album created! Now add photos.
+				h3.form-header-1#album-created-msg Album created! Now add photos.
+				h3.form-header-1#add-photos-msg.hide Photo added!
+				p#album-upload-photos.hide #{album.images.length + 1} photo uploaded. Choose another photo to add.
+				p#photo-counter.hide #{album.images.length}
+				p#album-upload-photos-pl.hide #{album.images.length + 1} photos uploaded. Choose another photo to add.
 				form(action="/upload/photo", method="POST", enctype="multipart/form-data")
 					p
 						div(style="position:relative;")
