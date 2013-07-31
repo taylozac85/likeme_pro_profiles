@@ -19,7 +19,16 @@ module.exports = function(app) {
 
   app.get('/upload/new', function(req, res) {
   	if (req.session.user) {
-  		res.render('upload', {message: 'Upload a photo after you submit an album name', message1: 'Submit an album name'});
+      var email = req.session.user.email;
+      Album.findOne({ 'user_email' : email }, function (err, album){
+        if (!album) {
+          res.render('upload', hid: hide);
+        } else {
+          hide = true;
+          res.render('upload', {hide: hide });
+        }
+      });
+  		
   	} else {
   		res.render('index');
   	}

@@ -1,6 +1,9 @@
 extends layout
 
 block content
+	script
+		var hide = !{JSON.stringify(hide)};
+		alert(hide);
 	div.navbar.navbar-inverse.navbar-fixed-top
 		div.navbar-inner
 			div.navbar-container
