@@ -35,7 +35,6 @@ module.exports = function(app) {
       }
       if (user) {
         req.session.user = user;
-        console.log(req.session.user)
       }
     });
     Album.findOne({ 'user_email' : req.session.user.email }, function(err, album){
@@ -96,6 +95,7 @@ module.exports = function(app) {
         });
       }
     });
+    sleep(10000);
     res.redirect('/pro-profile');
   });
 
