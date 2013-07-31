@@ -63,38 +63,48 @@ module.exports = function(app) {
           console.log("There is a problem setting the targetPath");
         };
 
-        fs.readFile(tempPath, function(err, data){
-          if (err) throw err;
-          if (data == "") {
-            user.description = req.body.description;
-            user.company = req.body.company;
-            user.location = req.body.location;
-            user.website = req.body.website;
-            user.phone = req.body.phone;
-            user.address = req.body.address;
-            user.save();
-            res.redirect('/pro-profile');
-          } else {
-            if (extension !== '.png' && extension !== '.jpeg' && extension !== '.jpg') {
-              res.redirect('/oops');
-            } else {
-              fs.rename(tempPath, targetPath, function(err) {
-                if (err) throw err;
-              }); 
-              user.profile_pic = targetPath.slice(7);
-              user.description = req.body.description;
-              user.company = req.body.company;
-              user.location = req.body.location;
-              user.website = req.body.website;
-              user.phone = req.body.phone;
-              user.address = req.body.address;
-              user.save();
-              res.redirect('/pro-profile')
-            }
-          }
-        });
+        user.description = req.body.description;
+        user.company = req.body.company;
+        user.location = req.body.location;
+        user.website = req.body.website;
+        user.phone = req.body.phone;
+        user.address = req.body.address;
+        user.save();
+        
       }
     });
+    res.redirect('/pro-profile');
   });
 
 };
+
+// fs.readFile(tempPath, function(err, data){
+//   if (err) throw err;
+//   if (data == "") {
+//     user.description = req.body.description;
+//     user.company = req.body.company;
+//     user.location = req.body.location;
+//     user.website = req.body.website;
+//     user.phone = req.body.phone;
+//     user.address = req.body.address;
+//     user.save();
+//     res.redirect('/pro-profile');
+//   } else {
+//     if (extension !== '.png' && extension !== '.jpeg' && extension !== '.jpg') {
+//       res.redirect('/oops');
+//     } else {
+//       fs.rename(tempPath, targetPath, function(err) {
+//         if (err) throw err;
+//       }); 
+//       user.profile_pic = targetPath.slice(7);
+//       user.description = req.body.description;
+//       user.company = req.body.company;
+//       user.location = req.body.location;
+//       user.website = req.body.website;
+//       user.phone = req.body.phone;
+//       user.address = req.body.address;
+//       user.save();
+//       res.redirect('/pro-profile')
+//     }
+//   }
+// });
