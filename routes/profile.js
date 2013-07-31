@@ -39,7 +39,6 @@ module.exports = function(app) {
     });
     Album.findOne({ 'user_email' : req.session.user.email }, function(err, album){
       if (!album){
-        console.log("No Album");
         var album = {images: [""]};
         res.render('pro-profile', {user: req.session.user, album: album});
       } else {
