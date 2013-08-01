@@ -1604,7 +1604,7 @@ label {
 div#master-container {
 	position: relative;
 	float: right;
-	margin-right: -185px;
+	margin-right: -165px;
 	width: 300px;
 	font-size: 18px;
 	border-radius: 9px 9px 0 0;
@@ -1621,7 +1621,7 @@ div#master-btn-container {
 button#master-btn {
 	position: relative;
 	margin: 0px;
-	padding: 6px 24px;
+	padding: 8px 32px;
 	font-size: 18px;
 	color: white;
 	background-color: #04C;
@@ -1632,4 +1632,21 @@ button#master-btn {
 	border-bottom: 0px;
 	cursor: hand; 
 	cursor: pointer;
+}
+
+#demo-stamp {
+	color: red;
+	text-align: center;
+	font-size: 28px;
+}
+
+#demo-signup-container {
+	text-align: center;
+}
+
+#demo-signup-btn {
+	font-size: 18px;
+	padding: 10px 36px;	
+	text-align: center;
+	margin-bottom: -15px;
 }
