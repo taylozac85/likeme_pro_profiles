@@ -8,8 +8,16 @@ html
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
-	body
 		script(type="text/javascript", src="/javascripts/photo-modal.js")
+		script
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-42893260-1', 'herokuapp.com');
+			ga('send', 'pageview');
+	body
 		div.navbar.navbar-inverse.navbar-fixed-top
 			div.navbar-inner
 				div.navbar-container
@@ -30,12 +38,16 @@ html
 					div.row-fluid
 						div.span3
 							img#pro-person-pic(src="images/zach2.png")
+							h3#demo-stamp Demo
+							//
+								div#demo-signup-container
+									a#demo-signup-btn.btn.btn-primary(href="new") Sign up
 						div.span9#pro-info-container
 							h4#pro-person-name Zachary Taylor
-							p#pro-company-name Taylor & Co. Interiors
+							p#pro-company-name Taylor & Derby Architects
 							p#pro-location Marin County, CA
 							div#pro-description
-								p Taylor & Co. Interiors designs and furnishes hundreds of commercial properties across the United States every year. Each project may take a business owner or builder from blueprints to finishing touches. We offer functionality, style and value, and we believe that good business and great design go hand in hand. At Taylor & Co. Interiors, we start with an agreed upon budget, making everything that follows a breeze.
+								p Taylor & Derby Architects designs and furnishes hundreds of commercial properties across the United States every year. Each project may take a business owner or builder from blueprints to finishing touches. We offer functionality, style and value, and we believe that good business and great design go hand in hand. At Taylor & Derby Architects, we start with an agreed upon budget, making everything that follows a breeze.
 								div#pro-description-more
 									p Our award-winning designers love to work in a variety of styles and a range of aesthetics, never getting too comfortable with a particular 'look.'
 									p Services Provided:
@@ -67,7 +79,7 @@ html
 						img#pro-album.pro-album-pic(src="images/yoga10-1.jpg")
 						div.pro-album-label-container
 							div.pro-album-label
-								p.search-pic-name Yoga Savana
+								p.search-pic-name Yoga Asana
 		div#pro-photo-modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="profile-photo-modalLabel", aria-hidden="true")
 			div#profile-modal-large-container
 				button.close(type="button", data-dismiss="modal", aria-hidden="true") ×

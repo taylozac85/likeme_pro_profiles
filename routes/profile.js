@@ -14,7 +14,6 @@ module.exports = function(app) {
     return y;
   }
 
-
   app.get('/edit-profile', function(req, res){
   	res.render('edit-profile', {user: req.session.user});
   });
@@ -67,34 +66,31 @@ module.exports = function(app) {
 
   app.post('/edit-profile', function(req, res) {
     User.findOne({ 'username' : req.session.user.username }, function(err, user) {
-      if(!err) {
-
-        var tempPath = req.files.file.path;
-        var extension = path.extname(req.files.file.name).toLowerCase();
-        if (extension == ".png") {
-          targetPath = 'public/img_uploads/image' + setTime() + '.png';
-        } else if (extension == ".jpeg") {
-          targetPath = 'public/img_uploads/image' + setTime() + '.jpeg';
-        } else if (extension == ".jpg") {
-          targetPath = 'public/img_uploads/image' + setTime() + '.jpg';
-        } else {
-          console.log("There is a problem setting the targetPath");
-        };
-        
-        fs.readFile(tempPath, function(err, data){
-          if (err) throw err;
-          if (data != "") {
-            fs.rename(tempPath, targetPath, function(err) {
-              if (err) throw err;
-              user.profile_pic = targetPath.slice(7);
-              saveUser(req, res, user);
-            });
-          } else {
+      var tempPath = req.files.file.path;
+      var extension = path.extname(req.files.file.name).toLowerCase();
+      if (extension == ".png") {
+        targetPath = 'public/img_uploads/image' + setTime() + '.png';
+      } else if (extension == ".jpeg") {
+        targetPath = 'public/img_uploads/image' + setTime() + '.jpeg';
+      } else if (extension == ".jpg") {
+        targetPath = 'public/img_uploads/image' + setTime() + '.jpg';
+      } else {
+        console.log("There is a problem setting the targetPath");
+      };
+      
+      fs.readFile(tempPath, function(err, data){
+        if (err) throw err;
+        if (data != "") {
+          fs.rename(tempPath, targetPath, function(err) {
+            if (err) throw err;
+            user.profile_pic = targetPath.slice(7);
             saveUser(req, res, user);
-          }          
-        });
-        
-      }
+          });
+        } else {
+          saveUser(req, res, user);
+        }          
+      });
+
     });
   });
 
