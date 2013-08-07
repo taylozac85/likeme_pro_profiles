@@ -52,9 +52,20 @@ module.exports = function(app) {
     };
   };
 
+  function saveUser(req, res, user){
+    user.description = req.body.description;
+    user.company = req.body.company;
+    user.location = req.body.location;
+    user.website = req.body.website;
+    user.phone = req.body.phone;
+    user.address = req.body.address;
+    user.save(function(){
+      res.redirect('/pro-profile');
+    });
+  }
+
   app.post('/edit-profile', function(req, res) {
     User.findOne({ 'username' : req.session.user.username }, function(err, user) {
-      
       var tempPath = req.files.file.path;
       var extension = path.extname(req.files.file.name).toLowerCase();
       if (extension == ".png") {
@@ -72,24 +83,17 @@ module.exports = function(app) {
         if (data != "") {
           fs.rename(tempPath, targetPath, function(err) {
             if (err) throw err;
+            user.profile_pic = targetPath.slice(7);
+            saveUser(req, res, user);
           });
-        }
-      });
-
-      user.profile_pic = targetPath.slice(7);
-      user.description = req.body.description;
-      user.company = req.body.company;
-      user.location = req.body.location;
-      user.website = req.body.website;
-      user.phone = req.body.phone;
-      user.address = req.body.address;
-      
-      user.save(function(err) {
-        if (!err){
-          res.redirect('/pro-profile');  
-        }
+        } else {
+          saveUser(req, res, user);
+        }          
       });
 
     });
   });
+
+
+
 };
